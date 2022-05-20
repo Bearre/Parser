@@ -1,0 +1,30 @@
+import requests
+
+open_weather_token = 'write your token here'
+
+
+def get_weather(city, open_weather_token):
+    try:
+        r = requests.get(
+            f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={open_weather_token}&units=metric"
+            )
+
+        data = r.json()
+        city = data["name"]
+        cur_weather = data["main"]["temp"]
+        humidity = data["main"]["humidity"]
+        pressure = data["main"]["pressure"]
+
+        return f'Город: {city} \nТемпература: {cur_weather}\nВлажность: {humidity}\nДавление: {pressure}\n'
+
+    except Exception as ex:
+        print(ex)
+
+
+def main():
+    city = input("Введите город ")
+    print(get_weather(city, open_weather_token))
+
+
+if __name__ == "__main__":
+    main()
