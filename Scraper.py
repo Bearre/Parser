@@ -48,12 +48,12 @@ Proxies = [
 ]
 
 URL = "https://coinmarketcap.com/ru/"
-time.sleep(1)
+
 fake_user = random.choice(UserAgents)
-proxy = random.choice(Proxies)
+fake_proxy = random.choice(Proxies)
 # Проверка соединения
 try:
-    Request = requests.get(URL, headers={'User-Agent': fake_user}, proxies={'Proxy': proxy})
+    Request = requests.get(URL, headers={'User-Agent': fake_user}, proxies={'Proxy': fake_proxy})
     if Request.status_code:
         print(f'Successful connection to {URL}, code {Request.status_code}')
 #    else:
