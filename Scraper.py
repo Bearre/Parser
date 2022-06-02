@@ -64,12 +64,6 @@ except Exception:
 finally:
     pass
 
-
-# Запись HTML в файл
-# with open('test.html', 'w', encoding='UTF-8') as output_file:
-#    output_file.write(Request.text)
-
-
 a = []
 # Получение HTML страницы
 HTML = BS(Request.text, 'html.parser')
