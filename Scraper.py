@@ -1,4 +1,3 @@
-import time
 import requests
 import random
 from bs4 import BeautifulSoup as BS
